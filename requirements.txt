@@ -1,0 +1,6 @@
+pandas
+duckdb
+click
+mysql-connector-python
+psycopg2
+boto3
