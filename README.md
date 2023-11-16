@@ -14,6 +14,26 @@ The `duckdb_insert` program allows for efficient extraction of data from MySQL, 
 - **Batch Processing**: Supports reading data in batches for optimized performance.
 - **Flexible Date Filtering**: Allows filtering of database records based on a specified date range.
 
+## Schema
+
+```mermaid
+graph TD
+    A[Start] --> B[Connect to Database]
+    B -->|MySQL| D[MySQL Connection]
+    B -->|PostgreSQL| E[PostgreSQL Connection]
+    B -->|SQLite| F[SQLite Connection]
+    D --> G[Read Data in Batches]
+    E --> G
+    F --> G
+    G --> H{Target Path}
+    H -->|Local Path| I[Write to Local Parquet]
+    H -->|S3 Path| J[Connect to AWS S3]
+    J --> K[Write to S3 Parquet]
+    I --> L[End]
+    K --> L
+```
+
+
 ## Installation
 
 Install the necessary dependencies using:
